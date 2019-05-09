@@ -1,5 +1,7 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import { Button} from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class Header extends React.Component{
 handleLogout= () =>{ 
@@ -12,9 +14,9 @@ render(){
         <NavLink to='/register'>Sign Up</NavLink>
         <NavLink to='/login'>Log In</NavLink>
         <NavLink to='/users'>Users</NavLink>
-        <button type="button" onClick={this.handleLogout}>
+        <Button color='primary'type="button" onClick={this.handleLogout}>
           Logout
-        </button>
+        </Button>
         </div>
     )
 }
