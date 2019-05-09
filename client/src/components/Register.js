@@ -22,22 +22,23 @@ class Register extends React.Component {
         [e.target.name]: e.target.value
         })
     }
+    
     submitForm = event => {
         event.preventDefault();
         const endpoint = 'http://localhost:8000/api/register';
-    
         axios
           .post(endpoint, this.state)
           .then(res => {
+            this.props.history.push('/login');
           })
           .catch(err => {
-            console.error('Login Error', err);
+            console.error('error while attempting to sign up', err);
           });
       };
 
   render() {
     return (
-      <div>
+      <div className='signup-wrapper'>
         <h2>Sign Up</h2>
         <Form>
         <label htmlFor="username" />

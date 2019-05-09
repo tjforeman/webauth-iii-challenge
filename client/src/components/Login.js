@@ -16,13 +16,13 @@ class Login extends React.Component {
 
       render() {
         return (
-          <div>
+          <div className='login-wrapper'>
             <h2>Log In</h2>
             <Form>
             <label htmlFor="username" />
               <Input
                 type="text"
-                placeholder="enter a username"
+                placeholder="Enter your username"
                 name="username"
                 onChange={this.changeHandler}
                 value={this.state.username}
@@ -30,7 +30,7 @@ class Login extends React.Component {
               <label htmlFor="password" />
               <Input
                 type="password"
-                placeholder="enter a password"
+                placeholder="Enter your password"
                 onChange={this.changeHandler}
                 name="password"
                 value={this.state.password}
@@ -57,6 +57,7 @@ class Login extends React.Component {
       .post(endpoint, this.state)
       .then(res => {
         localStorage.setItem('jwt', res.data.token);
+        this.props.history.push('/users');
       })
       .catch(err => {
         console.error('Login Error', err);
